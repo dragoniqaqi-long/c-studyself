@@ -102,6 +102,8 @@
                 pArr = (int *)malloc(4 * len);//则 pArr 指向的就是20个字节的第一个地址 \
                 *pArr 表示前四个字节位置的值      //而 pArr +1指向的就是从第5个字节开始的第一个地址 \ 
                 *pArr +1表示从第5个字节开始前四个字节位置的值
+                    或者可以这么写
+                pArr = (int *)malloc(4 * sizeof(int)); 
 
                 实质上pArr = (int *)malloc(4 * len);近似于 int pArr[len];
                 即构造了一个动态数组,且每个元素均为 int 类型
@@ -147,15 +149,6 @@
 
 四.多级指针
     详看eg3
-
-
-
-
-
-
-
-
-
 */
 #include <stdio.h>
 
@@ -199,9 +192,9 @@ int main(){
     c = 3,d = 5;
     a = 3,b = 5;
     exchange1( a, b);//exchange1无法互换
-    exchange2( c, d);//exchange2可以交换
-    printf("%d %d", a, b); // exchange1结果为 3, 5
-
+    exchange2( &c, &d);//exchange2可以交换
+    printf("%d %d\n", a, b); // exchange1结果为 3, 5
+    printf("%d %d\n", c, d); // exchange2结果为 5, 3
     return 0;
 }
 

@@ -20,7 +20,7 @@ int main()
     int *pArr;
     int len = 5;
     pArr = (int *)malloc(4 * len);
-
+    pArr = (int *)malloc(5 * sizeof(int));//两种均可
     for(int i = 0;i < 5;i++)
     { 
         scanf("%d", &pArr[i]);   
@@ -30,19 +30,20 @@ int main()
     {
         printf("%d ", pArr[j]);
     }
-
+    printf("\n");
     //检查是否释放内存
     free(pArr);
 
-
+    printf("新数组输入5个数\n");
     int *arr = (int *)malloc(4 * len);
     for(int i = 0;i < 5;i++){ 
         scanf("%d", &arr[i]);}
     for(int j = 0;j < 5;j++){
         printf("%d ", arr[j]);}
-
+    printf("\n");
+    
     int LEN = 10;
-
+    printf("对新数组扩充后,输入10个数\n");
     int *new_arr = (int *)realloc(arr,4 * LEN);//将数组的元素数量改为10
     for(int i = 0;i < 10;i++){ 
         scanf("%d", &new_arr[i]);}
