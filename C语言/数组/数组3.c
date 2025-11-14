@@ -19,5 +19,8 @@ int main(void)
 		printf("\n");
 	
 	}
+	int ab[5];
+	ab[2] = 30;
+	printf("%d", a[0]);
 	return 0;
 }
